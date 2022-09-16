@@ -15,11 +15,10 @@ create table `towns` (
 `name` varchar(30)
 ); 
 
-#Task 2
 ALTER TABLE `towns`
 CHANGE COLUMN  `town_id` `id` int;
 
-#Task 3
+#Task 2
 ALTER TABLE `minions`
 ADD COLUMN `town_id` INT;
 ALTER TABLE `minions`
@@ -27,7 +26,7 @@ ADD CONSTRAINT `fk_minions_towns`
 FOREIGN KEY `minions` (`town_id`)
 REFERENCES `towns` (`id`);
 
-#Task 4
+#Task 3
 INSERT INTO `towns`(`id`,`name`)
 VALUES("1","Sofia"),
 ("2","Plovdiv"),
@@ -38,3 +37,5 @@ VALUES("1","Kevin","22","1"),
 ("2","Bob","15","3"),
 ("3","Steward",NULL,"2");
 
+#Task 4
+TRUNCATE TABLE `minions`;
