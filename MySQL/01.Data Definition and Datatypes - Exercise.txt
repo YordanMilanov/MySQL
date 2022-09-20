@@ -102,3 +102,65 @@ DROP PRIMARY KEY,
 ADD CONSTRAINT pk_users
 PRIMARY KEY `users` (`id`),
 MODIFY COLUMN `username` VARCHAR(30) UNIQUE;
+
+#Task 11
+CREATE DATABASE `Movies`;
+USE `Movies`;
+
+CREATE TABLE `directors` (
+`id` INT PRIMARY KEY AUTO_INCREMENT,
+`director_name` VARCHAR(200) NOT NULL,
+`notes` TEXT);
+
+CREATE TABLE `genres` (
+`id` INT PRIMARY KEY AUTO_INCREMENT,
+`genre_name` VARCHAR(200) NOT NULL,
+`notes` TEXT);
+
+CREATE TABLE `categories` (
+`id` INT PRIMARY KEY AUTO_INCREMENT,
+`category_name` VARCHAR(200) NOT NULL,
+`notes` TEXT);
+
+CREATE TABLE `movies` (
+`id` INT PRIMARY KEY AUTO_INCREMENT,
+`title` VARCHAR(200) NOT NULL,
+`director_id` INT,
+`copyright_year` DATE,
+`length` DOUBLE,
+`genre_id` INT,
+`category_id` INT,
+ `rating` DOUBLE,
+`notes` TEXT);
+
+INSERT INTO `directors`(`director_name`, `notes`)
+VALUES 
+('TestName1', 'TestNotes'),
+('TestName2', 'TestNotes'),
+('TestName3', 'TestNotes'),
+('TestName4', 'TestNotes'),
+('TestName5', 'TestNotes');
+
+INSERT INTO `genres`(`genre_name`, `notes`)
+VALUES 
+('TestName1', 'TestNotes'),
+('TestName2', 'TestNotes'),
+('TestName3', 'TestNotes'),
+('TestName4', 'TestNotes'),
+('TestName5', 'TestNotes');
+
+INSERT INTO `categories`(`category_name`, `notes`)
+VALUES 
+('TestName1', 'TestNotes'),
+('TestName2', 'TestNotes'),
+('TestName3', 'TestNotes'),
+('TestName4', 'TestNotes'),
+('TestName5', 'TestNotes');
+
+INSERT INTO `movies`(`title`, `notes`)
+VALUES 
+('TestName1', 'TestNotes'),
+('TestName2', 'TestNotes'),
+('TestName3', 'TestNotes'),
+('TestName4', 'TestNotes'),
+('TestName5', 'TestNotes');
