@@ -80,3 +80,9 @@ LIMIT 10;
 SELECT `first_name`, `last_name` , `hire_date` FROM `employees`
 ORDER BY `hire_date` DESC
 LIMIT 7;
+
+#20. Increase Salaries
+UPDATE `employees`
+SET `salary` = `salary` * 1.12
+WHERE `department_id` = 1 OR 2 OR 4 OR 11; #department id
+SELECT `salary` FROM `employees`;
