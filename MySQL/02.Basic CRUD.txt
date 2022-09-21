@@ -86,3 +86,7 @@ UPDATE `employees`
 SET `salary` = `salary` * 1.12
 WHERE `department_id` = 1 OR 2 OR 4 OR 11; #department id
 SELECT `salary` FROM `employees`;
+
+#21. All Mountain Peaks
+SELECT `peak_name` FROM `peaks`
+ORDER BY `peak_name`;
