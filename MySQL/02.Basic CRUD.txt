@@ -54,4 +54,8 @@ LIMIT 5;
 
 #13. Find All Employees Except Marketing
 SELECT `first_name` , `last_name` FROM `employees`
-WHERE `employee_id` != 4;
+WHERE `department_id` != 4;
+
+#14. Sort Employees Table
+SELECT * FROM `employees`
+ORDER BY `salary` DESC, `first_name` , `last_name` DESC , `middle_name`;
