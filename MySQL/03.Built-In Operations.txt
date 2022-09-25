@@ -24,3 +24,24 @@ ORDER BY `employee_id`;
 SELECT `name` from `towns`
 WHERE char_length(`name`) IN (5,6)
 ORDER BY `name`;
+
+#6. Find Towns Starting With
+SELECT * from `towns`
+WHERE `name` LIKE "m%" 
+OR `name` LIKE "k%" 
+OR `name` LIKE "b%" 
+OR `name` LIKE "e%"
+ORDER BY `name`;
+
+#7. Find Towns Not Starting With
+SELECT * from `towns`
+WHERE `name` NOT LIKE "r%" 
+AND `name`  NOT LIKE "d%" 
+AND `name` NOT LIKE "b%" 
+ORDER BY `name`;
+
+#08. Create View Employees Hired After
+CREATE VIEW v_employees_hired_after_2000 AS
+SELECT `first_name`, `last_name` from `employees`
+WHERE YEAR(`hire_date`) > 2000;
+SELECT * FROM v_employees_hired_after_2000;
