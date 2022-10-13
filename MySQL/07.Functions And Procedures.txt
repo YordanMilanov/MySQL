@@ -50,3 +50,29 @@ ELSE SET salary_level := 'High';
 END IF;
 RETURN salary_level;
 END$$
+
+#6. Employees by Salary Level
+DELIMITER $$
+CREATE PROCEDURE usp_get_employees_by_salary_level(salary_level VARCHAR(10))
+BEGIN
+SELECT `first_name`, `last_name` 
+FROM `employees`
+WHERE ufn_get_salary_level(`salary`) LIKE salary_level
+ORDER BY `first_name` DESC, `last_name` DESC;
+END$$
+
+#7. Define Function
+DELIMITER $$
+CREATE FUNCTION ufn_is_word_comprised(set_of_letters varchar(50), word varchar(50))
+RETURNS INT
+DETERMINISTIC
+BEGIN
+RETURN word REGEXP (CONCAT('^[', set_of_letters, ']+$'));
+END$$
+
+#8. Find Full Name
+CREATE PROCEDURE usp_get_holders_full_name()
+BEGIN
+SELECT CONCAT(`first_name`, ' ', `last_name`) AS 'full_name' FROM `account_holders`
+ORDER BY `full_name`, `id`;
+END$$
