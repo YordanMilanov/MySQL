@@ -17,3 +17,11 @@ WHERE `salary` >= target_salary
 ORDER BY `first_name`, `last_name`, `employee_id`;
 END$$
 
+#3. Town Names Starting With
+DELIMITER $$
+CREATE PROCEDURE usp_get_towns_starting_with(start_name VARCHAR(255))
+BEGIN
+SELECT `name` FROM `towns`
+WHERE `name` LIKE CONCAT(start_name,'%')
+ORDER BY `name`;
+END$$
