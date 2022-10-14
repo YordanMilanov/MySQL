@@ -70,3 +70,26 @@ CONSTRAINT fk_genres_movies_movies
 FOREIGN KEY (`movie_id`)
 REFERENCES `movies`(`id`)
 );
+
+#Task 2 Insert
+
+INSERT INTO `actors` (`first_name`, `last_name`, `birthdate`, `height`, `awards`, `country_id`)
+SELECT 
+(REVERSE(`first_name`)), 
+(REVERSE(`last_name`)),
+(`birthdate` - 2),
+(`height` + 10),
+(`country_id`),
+(3) #Armenia ID
+FROM `actors`
+WHERE `id` <= 10;
+
+#Task 3 Update
+UPDATE `movies_additional_info`
+SET `runtime` = `runtime` - 10
+WHERE `id` BETWEEN 15 AND 25;
+
+#Task 4 Delete
+DELETE c FROM `countries` AS c
+LEFT JOIN `movies` AS m ON c.`id` = m.`country_id`
+WHERE m.`country_id` IS NULL;
